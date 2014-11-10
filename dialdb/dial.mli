@@ -9,7 +9,7 @@ module type DIAL =
     (** Clean all stored requests *)
     val clean_request : ('a * string) list list -> unit
 
-    (** Execute specific request by name with parameters *)
+    (** Execute specific ( /!\ not select) request by name with parameters *)
     val execute_request : (string * string option list) -> string list
 
     (** Draw a resulting row *)
@@ -17,6 +17,9 @@ module type DIAL =
 
     (** Close the access to the database *)
     val close : unit -> unit
+
+    (** Execute specific (select) request by name with parameters *)
+    val execute_select : (string * string option list) -> string list list
 			  
   end
 
